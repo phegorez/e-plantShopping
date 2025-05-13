@@ -24,7 +24,13 @@ export const CartSlice = createSlice({
             if (itemToUpdate) {
                 itemToUpdate.quantity = quantity
             }
-    },
+        },
+        totalItem: (state) => {
+            let total = state.items.reduce((acc, item) => {
+                return acc + item.quantity;
+            }, 0)
+            return total;
+        },
     },
 });
 
